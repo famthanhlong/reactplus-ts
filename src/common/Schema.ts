@@ -16,6 +16,12 @@ export const schemaRegister = yup
       .min(8, "Password is too short - should be 8 chars minimum.")
       .matches(/[a-zA-Z]/, "Password can only contain Latin letters.")
       .required("Password is required field!"),
+    confirmPassword: yup
+      .string()
+      .min(8, "Password is too short - should be 8 chars minimum.")
+      .matches(/[a-zA-Z]/, "Password can only contain Latin letters.")
+      .required("Password is required field!")
+      .oneOf([yup.ref("password"), null], "Passwords must match"),
   })
   .required();
 export const schemaLogin = yup

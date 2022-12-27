@@ -32,14 +32,10 @@ function Register() {
   });
 
   const onSubmit = async (data: FormValues) => {
-    if (data.password === data.confirmPassword) {
-      const { name, email, password } = data;
+    const { name, email, password } = data;
 
-      await postData("users", { name, email, password });
-      nagivate("/login");
-    } else {
-      alert("Mat khau chua trung khop");
-    }
+    await postData("users", { name, email, password });
+    nagivate("/login");
   };
   return (
     <div>
@@ -104,6 +100,9 @@ function Register() {
                     />
                   )}
                 />
+                {errors.confirmPassword && (
+                  <p className="error-message">{errors.confirmPassword.message}</p>
+                )}
                 <ButtonRes />
               </Form>
             </Col>
