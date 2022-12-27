@@ -1,0 +1,49 @@
+.banner-res {
+    width: 287px;
+    height: 215px;
+    margin: auto;
+    padding-top: 68px;
+  }
+  .banner-res img {
+    width: 100%;
+  }
+  .title-res h2 {
+    width: 60%;
+    margin: auto;
+    font-weight: 400;
+    font-size: 24px;
+    text-align: center;
+  }
+  .title-res p {
+    width: 60%;
+    margin: auto;
+    font-weight: 300;
+    font-size: 12px;
+    text-align: center;
+    color: #000000bd;
+    margin-bottom: 10px;
+  }
+  
+  .ant-input,
+  .ant-input-password {
+    border-radius: 22px;
+    width: 312px;
+    height: 51px;
+    padding: 0;
+    padding-left: 15px;
+    margin: 10px 0;
+  }
+  .signIn-res {
+    text-align: center;
+    padding-bottom: 20px;
+  }
+  .signIn-link {
+    text-decoration: none;
+    color: #d8605b;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .btn-submit {
+    margin-top: 40px;
+  }
+  

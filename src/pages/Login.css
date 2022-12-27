@@ -1,0 +1,67 @@
+.banner-login {
+    width: 287px;
+    height: 215px;
+    margin: auto;
+    padding-top: 68px;
+  }
+  .banner-login img {
+    width: 100%;
+  }
+  
+  .title-login h2 {
+    width: 100%;
+    margin: auto;
+    font-weight: 400;
+    font-size: 24px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 53px;
+  }
+  .title-login p {
+    width: 37%;
+    margin: auto;
+    font-weight: 300;
+    font-size: 16px;
+    text-align: center;
+    color: #000000bd;
+  }
+  .ant-input,
+  .ant-input-password {
+    border-radius: 22px;
+    width: 325px;
+    height: 51px;
+    padding: 0;
+    margin: 10px 0;
+  }
+  .res-login {
+    margin-top: 20px;
+    text-align: center;
+    padding-bottom: 20px;
+  }
+  .res-link {
+    text-decoration: none;
+    color: #d8605b;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .btn-submit {
+    width: 84%;
+    height: 56px;
+    margin: auto;
+  }
+  .btn-res {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(267.72deg, #d8605b -0.89%, #f4c27f 112.29%);
+    margin: auto;
+    mix-blend-mode: normal;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 50px;
+    border: none;
+    padding: 0;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 16px;
+    text-transform: capitalize;
+  }
+  

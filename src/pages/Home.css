@@ -1,0 +1,32 @@
+.banner-home {
+    width: 371px;
+    height: 278px;
+    padding-bottom: 50px;
+    padding-top: 160px;
+  }
+  .banner-home img {
+    width: 100%;
+  }
+  .title-home h2 {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 300;
+    margin: 0;
+    margin-top: 13px;
+  }
+  .title-home h1 {
+    margin: 0;
+    text-align: center;
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-bottom: 13px;
+  }
+  .title-home p {
+    width: 75%;
+    text-align: center;
+    margin: auto;
+    font-weight: 200;
+    font-size: 12px;
+    color: #000000bd;
+  }
+  
