@@ -11,12 +11,12 @@ import { getTask } from "../service/GetData";
 //
 import "./Dashboard.css";
 
-type TTask ={
-    id: number,
-    name: string,
-    completed: boolean,
-    createdAt: string,
-}
+type TTask = {
+  id: number;
+  name: string;
+  completed: boolean;
+  createdAt: string;
+};
 
 function Dashboard() {
   const fomatDate = (date: any) => {
@@ -61,18 +61,17 @@ function Dashboard() {
               </button>
             </div>
             <ul className="nav-task">
-              {taskList &&
-                taskList.map((todo) => {
-                  return (
-                    <li className="force-overflow" key={todo.id}>
-                      <Checkbox defaultChecked={todo.completed} />
-                      <span>
-                        &nbsp;
-                        {todo.name} create at {fomatDate(todo.createdAt)}
-                      </span>
-                    </li>
-                  );
-                })}
+              {taskList.map((todo) => {
+                return (
+                  <li className="force-overflow" key={todo.id}>
+                    <Checkbox defaultChecked={todo.completed} />
+                    <span>
+                      &nbsp;
+                      {todo.name} create at {fomatDate(todo.createdAt)}
+                    </span>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>
