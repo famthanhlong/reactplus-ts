@@ -18,6 +18,8 @@ type TTask ={
     createdAt: string,
 }
 
+const testCommit = "Test Commit"
+
 function Dashboard() {
   const fomatDate = (date: any) => {
     return moment(date).format("h a");
