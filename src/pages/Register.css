@@ -24,11 +24,11 @@
     margin-bottom: 10px;
   }
   
-  .ant-input,
-  .ant-input-password {
+  .input{
+    border: none;
     border-radius: 22px;
     width: 312px;
-    height: 51px;
+    height: 50px;
     padding: 0;
     padding-left: 15px;
     margin: 10px 0;
@@ -46,4 +46,6 @@
   .btn-submit {
     margin-top: 40px;
   }
-  
+  .errors-message{
+    color: red;
+  }
