@@ -1,13 +1,11 @@
 import React from "react";
-import { Form, Row, Col, Input } from "antd";
-import { useForm, Controller } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
+import { Row, Col } from "antd";
+import { Field, Formik, Form } from "formik";
 //
 import banner from "../asset/Banner.png";
 import ButtonLogin from "../common/ButtonLogin";
 import { schemaLogin } from "../common/Schema";
 import { Link, useNavigate } from "react-router-dom";
-
 //
 import "./Login.css";
 
@@ -18,18 +16,8 @@ type FormValues = {
 function Login() {
   const navigate = useNavigate();
 
-  const {
-    handleSubmit,
-    formState: { errors },
-    control,
-  } = useForm<FormValues>({
-    mode: "onChange",
-    reValidateMode: "onChange",
-    resolver: yupResolver(schemaLogin),
-  });
-
-  const onSubmit = (data: FormValues) => {
-    console.log("aaaaa", data);
+  const handleSubmit = (data: FormValues) => {
+    console.log("aaaaa");
     navigate("/dashboard");
   };
 
@@ -46,36 +34,41 @@ function Login() {
         <div className="form-login">
           <Row>
             <Col span={20} offset={2}>
-              <Form
-                onFinish={handleSubmit(onSubmit)}
-  
+              <Formik
+                initialValues={{
+                  email: "",
+                  password: "",
+                }}
+                validationSchema={schemaLogin}
+                onSubmit={(values) => {
+                  handleSubmit(values);
+                }}
               >
-                <Controller
-                  control={control}
-                  name="email"
-                  render={({ field }) => (
-                    <Input {...field} placeholder="Enter your email" />
-                  )}
-                />
-                {errors.email && (
-                  <p className="error-message">{errors.email.message}</p>
-                )}
-                <Controller
-                  control={control}
-                  name="password"
-                  render={({ field }) => (
-                    <Input
-                      type="password"
-                      placeholder="Enter your password"
-                      {...field}
+                {({ errors, touched }) => (
+                  <Form>
+                    <Field
+                      className="input-login"
+                      id="email"
+                      name="email"
+                      placeholder="Enter Your Email"
                     />
-                  )}
-                />
-                {errors.password && (
-                  <p className="error-message">{errors.password.message}</p>
+                    {errors.email && touched.email ? (
+                      <div className="errors-message">{errors.email}</div>
+                    ) : null}
+                    <Field
+                      className="input-login"
+                      id="password"
+                      name="password"
+                      type="password"
+                      placeholder="Enter Your Password"
+                    />
+                    {errors.password && touched.password ? (
+                      <div className="errors-message">{errors.password}</div>
+                    ) : null}
+                    <ButtonLogin/>
+                  </Form>
                 )}
-                <ButtonLogin/>
-              </Form>
+              </Formik>
             </Col>
           </Row>
         </div>

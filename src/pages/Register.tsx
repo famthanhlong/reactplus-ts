@@ -1,41 +1,29 @@
-import React from "react";
-import { Form, Row, Col, Input } from "antd";
-import { useForm, Controller } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
+//
+import { Field, Formik, Form } from "formik";
+import { Col, Row } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 //
-import ButtonRes from "../common/ButtonRes";
 import banner from "../asset/Banner.png";
+import ButtonRes from "../common/ButtonRes";
 import { schemaRegister } from "../common/Schema";
 import { postData } from "../service/PostData";
 //
 import "./Register.css";
 
-//
 type FormValues = {
   name: string;
   email: string;
   password: string;
   confirmPassword: string;
 };
+
 function Register() {
-  const nagivate = useNavigate();
+  const navigate = useNavigate();
 
-  const {
-    handleSubmit,
-    formState: { errors },
-    control,
-  } = useForm<FormValues>({
-    mode: "onChange",
-    reValidateMode: "onChange",
-    resolver: yupResolver(schemaRegister),
-  });
-
-  const onSubmit = async (data: FormValues) => {
+  const handleSubmit = async (data: FormValues) => {
     const { name, email, password } = data;
-
     await postData("users", { name, email, password });
-    nagivate("/login");
+    navigate("/login");
   };
   return (
     <div>
@@ -50,61 +38,60 @@ function Register() {
         <div className="form-res">
           <Row>
             <Col span={20} offset={2}>
-              <Form onFinish={handleSubmit(onSubmit)}>
-                <Controller
-                  control={control}
-                  name="name"
-                  render={({ field }) => (
-                    <Input
-                      placeholder="Enter your full name"
-                      {...field}
-                      status={errors.name && "error"}
+              <Formik
+                initialValues={{
+                  name: "",
+                  email: "",
+                  password: "",
+                  confirmPassword: "",
+                }}
+                validationSchema={schemaRegister}
+                onSubmit={(data) => {
+                  handleSubmit(data);
+                }}
+              >
+                {({ errors, touched }) => (
+                  <Form>
+                    <Field
+                      className="input"
+                      name="name"
+                      placeholder="Enter Your Name"
                     />
-                  )}
-                />
-                {errors.name && (
-                  <p className="error-message">{errors.name.message}</p>
-                )}
-                <Controller
-                  control={control}
-                  name="email"
-                  render={({ field }) => (
-                    <Input placeholder="Enter your email" {...field} />
-                  )}
-                />
-                {errors.email && (
-                  <p className="error-message">{errors.email.message}</p>
-                )}
-                <Controller
-                  control={control}
-                  name="password"
-                  render={({ field }) => (
-                    <Input
+                    {errors.name && touched.name ? (
+                      <div className="errors-message">{errors.name}</div>
+                    ) : null}
+                    <Field
+                      className="input"
+                      name="email"
+                      placeholder="Enter Your Email"
+                    />
+                    {errors.email && touched.email ? (
+                      <div className="errors-message">{errors.email}</div>
+                    ) : null}
+                    <Field
+                      className="input"
+                      name="password"
                       type="password"
-                      placeholder="Enter your password"
-                      {...field}
+                      placeholder="Enter Your Password"
                     />
-                  )}
-                />
-                {errors.password && (
-                  <p className="error-message">{errors.password.message}</p>
-                )}
-                <Controller
-                  control={control}
-                  name="confirmPassword"
-                  render={({ field }) => (
-                    <Input
+                    {errors.password && touched.password ? (
+                      <div className="errors-message">{errors.password}</div>
+                    ) : null}
+                    <Field
+                      className="input"
+                      name="confirmPassword"
                       type="password"
-                      placeholder="Confirm password"
-                      {...field}
+                      placeholder="Confirm Your Password"
                     />
-                  )}
-                />
-                {errors.confirmPassword && (
-                  <p className="error-message">{errors.confirmPassword.message}</p>
+                    {errors.confirmPassword && touched.confirmPassword ? (
+                      <div className="errors-message">
+                        {errors.confirmPassword}
+                      </div>
+                    ) : null}
+                    <ButtonRes />
+                  </Form>
                 )}
-                <ButtonRes />
-              </Form>
+              </Formik>
             </Col>
           </Row>
         </div>
