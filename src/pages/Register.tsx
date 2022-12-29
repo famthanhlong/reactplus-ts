@@ -54,31 +54,31 @@ function Register() {
                 {({ errors, touched }) => (
                   <Form>
                     <Input name="name" placeholder="Enter Your Name" />
-                    {errors.name && touched.name ? (
+                    {errors.name && touched.name && (
                       <div className="errors-message">{errors.name}</div>
-                    ) : null}
+                    )}
                     <Input name="email" placeholder="Enter Your Email" />
-                    {errors.email && touched.email ? (
+                    {errors.email && touched.email && (
                       <div className="errors-message">{errors.email}</div>
-                    ) : null}
+                    )}
                     <Input
                       name="password"
                       type="password"
                       placeholder="Enter Your Password"
                     />
-                    {errors.password && touched.password ? (
+                    {errors.password && touched.password && (
                       <div className="errors-message">{errors.password}</div>
-                    ) : null}
+                    )}
                     <Input
                       name="confirmPassword"
                       type="password"
                       placeholder="Confirm Your Password"
                     />
-                    {errors.confirmPassword && touched.confirmPassword ? (
+                    {errors.confirmPassword && touched.confirmPassword && (
                       <div className="errors-message">
                         {errors.confirmPassword}
                       </div>
-                    ) : null}
+                    )}
                     <ButtonRes />
                   </Form>
                 )}
