@@ -25,13 +25,15 @@
     text-align: center;
     color: #000000bd;
   }
-  .ant-input,
-  .ant-input-password {
+.ant-input{
+    border: none;
     border-radius: 22px;
-    width: 325px;
-    height: 51px;
+    width: 305px;
+    height: 50px;
     padding: 0;
+    padding-left: 15px;
     margin: 10px 0;
+    margin-left: 20px;
   }
   .res-login {
     margin-top: 20px;
