@@ -1,7 +1,8 @@
 //
-import { Field, Formik, Form } from "formik";
+import { Formik } from "formik";
 import { Col, Row } from "antd";
 import { Link, useNavigate } from "react-router-dom";
+import { Form, Input } from "formik-antd";
 //
 import banner from "../asset/Banner.png";
 import ButtonRes from "../common/ButtonRes";
@@ -52,24 +53,15 @@ function Register() {
               >
                 {({ errors, touched }) => (
                   <Form>
-                    <Field
-                      className="input"
-                      name="name"
-                      placeholder="Enter Your Name"
-                    />
+                    <Input name="name" placeholder="Enter Your Name" />
                     {errors.name && touched.name ? (
                       <div className="errors-message">{errors.name}</div>
                     ) : null}
-                    <Field
-                      className="input"
-                      name="email"
-                      placeholder="Enter Your Email"
-                    />
+                    <Input name="email" placeholder="Enter Your Email" />
                     {errors.email && touched.email ? (
                       <div className="errors-message">{errors.email}</div>
                     ) : null}
-                    <Field
-                      className="input"
+                    <Input
                       name="password"
                       type="password"
                       placeholder="Enter Your Password"
@@ -77,8 +69,7 @@ function Register() {
                     {errors.password && touched.password ? (
                       <div className="errors-message">{errors.password}</div>
                     ) : null}
-                    <Field
-                      className="input"
+                    <Input
                       name="confirmPassword"
                       type="password"
                       placeholder="Confirm Your Password"

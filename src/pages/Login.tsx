@@ -1,11 +1,12 @@
 import React from "react";
 import { Row, Col } from "antd";
-import { Field, Formik, Form } from "formik";
+import { Formik } from "formik";
+import { Link, useNavigate } from "react-router-dom";
+import { Form, Input } from "formik-antd";
 //
 import banner from "../asset/Banner.png";
 import ButtonLogin from "../common/ButtonLogin";
 import { schemaLogin } from "../common/Schema";
-import { Link, useNavigate } from "react-router-dom";
 //
 import "./Login.css";
 
@@ -46,8 +47,7 @@ function Login() {
               >
                 {({ errors, touched }) => (
                   <Form>
-                    <Field
-                      className="input-login"
+                    <Input
                       id="email"
                       name="email"
                       placeholder="Enter Your Email"
@@ -55,8 +55,7 @@ function Login() {
                     {errors.email && touched.email ? (
                       <div className="errors-message">{errors.email}</div>
                     ) : null}
-                    <Field
-                      className="input-login"
+                    <Input
                       id="password"
                       name="password"
                       type="password"
@@ -65,7 +64,7 @@ function Login() {
                     {errors.password && touched.password ? (
                       <div className="errors-message">{errors.password}</div>
                     ) : null}
-                    <ButtonLogin/>
+                    <ButtonLogin />
                   </Form>
                 )}
               </Formik>
