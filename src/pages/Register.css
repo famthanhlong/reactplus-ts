@@ -24,7 +24,7 @@
     margin-bottom: 10px;
   }
   
-  .input{
+.ant-input{
     border: none;
     border-radius: 22px;
     width: 312px;
@@ -32,6 +32,7 @@
     padding: 0;
     padding-left: 15px;
     margin: 10px 0;
+    margin-left: 20px;
   }
   .signIn-res {
     text-align: center;

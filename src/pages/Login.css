@@ -25,7 +25,7 @@
     text-align: center;
     color: #000000bd;
   }
-  .input-login{
+.ant-input{
     border: none;
     border-radius: 22px;
     width: 305px;
@@ -33,6 +33,7 @@
     padding: 0;
     padding-left: 15px;
     margin: 10px 0;
+    margin-left: 20px;
   }
   .res-login {
     margin-top: 20px;
