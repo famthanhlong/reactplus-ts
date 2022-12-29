@@ -18,7 +18,6 @@ function Login() {
   const navigate = useNavigate();
 
   const handleSubmit = (data: FormValues) => {
-    console.log("aaaaa");
     navigate("/dashboard");
   };
 
@@ -52,18 +51,18 @@ function Login() {
                       name="email"
                       placeholder="Enter Your Email"
                     />
-                    {errors.email && touched.email ? (
+                    {errors.email && touched.email && (
                       <div className="errors-message">{errors.email}</div>
-                    ) : null}
+                    )}
                     <Input
                       id="password"
                       name="password"
                       type="password"
                       placeholder="Enter Your Password"
                     />
-                    {errors.password && touched.password ? (
+                    {errors.password && touched.password && (
                       <div className="errors-message">{errors.password}</div>
-                    ) : null}
+                    )}
                     <ButtonLogin />
                   </Form>
                 )}
