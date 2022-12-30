@@ -4,7 +4,7 @@ import React from "react";
 import banner from "../asset/Banner.png";
 import Button from "../common/ButtonStart";
 //
-import "./Home.css";
+import "../styles/Home.css";
 
 function Home() {
   return (

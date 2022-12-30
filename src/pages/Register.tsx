@@ -9,7 +9,7 @@ import ButtonRes from "../common/ButtonRes";
 import { schemaRegister } from "../common/Schema";
 import { postData } from "../service/PostData";
 //
-import "./Register.css";
+import "../styles/Register.css";
 
 type FormValues = {
   name: string;

@@ -9,7 +9,7 @@ import btnAddImg from "../asset/Plus-circle.png";
 //
 import { getTask } from "../service/GetData";
 //
-import "./Dashboard.css";
+import "../styles/Dashboard.css";
 
 type TTask = {
   id: number;

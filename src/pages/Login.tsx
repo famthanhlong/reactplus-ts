@@ -8,7 +8,7 @@ import banner from "../asset/Banner.png";
 import ButtonLogin from "../common/ButtonLogin";
 import { schemaLogin } from "../common/Schema";
 //
-import "./Login.css";
+import "../styles/Login.css";
 
 type FormValues = {
   email: string;
